@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian:buster-20231120-slim
 
 # Install dependencies for Xvfb and Blender
 RUN apt-get update && apt-get install -y \
