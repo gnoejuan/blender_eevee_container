@@ -4,6 +4,7 @@ FROM bitnami/minideb:latest
 RUN apt-get update && apt-get install -y \
     xvfb \
     blender \
+    libegl1 \
     && rm -rf /var/lib/apt/lists/*
 
 # Set up the virtual display environment variable
