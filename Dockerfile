@@ -42,8 +42,6 @@ RUN \
     /var/lib/apt/lists/* \
     /var/tmp/*
 
-COPY /root /
-
 # Set up the virtual display environment variable
 ENV DISPLAY :99
 
