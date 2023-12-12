@@ -28,8 +28,8 @@ RUN install_packages libwayland-dev \
     linux-libc-dev
 
 RUN \
-  git clone https://projects.blender.org/blender/blender.git && \
-  ./blender/build_files/build_environment/install_linux_packages.py --all && \
+  git clone https://projects.blender.org/blender/blender.git  .&& \
+  ./build_files/build_environment/install_linux_packages.py --all && \
   make && \ 
   make install
 
