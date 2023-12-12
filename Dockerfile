@@ -4,6 +4,7 @@ ARG BLENDER_VERSION
 
 # Install dependencies for Xvfb and Blender
 RUN apt-get update && apt-get install -y \
+    curl \
     xvfb \
     libegl1 \
     && rm -rf /var/lib/apt/lists/*
