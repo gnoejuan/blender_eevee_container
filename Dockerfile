@@ -5,6 +5,7 @@ ARG BLENDER_VERSION
 # Install dependencies for Xvfb and Blender
 RUN install_packages \
     ca-certificates \
+    sudo \
     python3 \
     git \
     xvfb \
