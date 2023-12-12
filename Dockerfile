@@ -19,7 +19,7 @@ RUN install_packages \
     libegl-dev
 
 RUN install_packages libwayland-dev \
-    wayocols \
+    wayland-protocols \
     libxkbcommon-dev \
     libdbus-1-dev \
     linux-libc-dev
