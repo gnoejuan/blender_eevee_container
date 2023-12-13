@@ -32,7 +32,7 @@ RUN git clone https://projects.blender.org/blender/blender.git
 WORKDIR /blender
 
 RUN ls -R
-RUN python build_files/build_environment/install_linux_packages.py --all && \
+RUN python $(find /repo -name "install_linux_packages.py") --all && \
   make && \ 
   make install
 
