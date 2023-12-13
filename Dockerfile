@@ -1,8 +1,9 @@
-FROM bitnami/python:3.10.13
+FROM bitnami/python:3.12.1
 
 ARG BLENDER_VERSION
 
 # Install dependencies for Xvfb and Blender
+RUN apt-get update
 RUN install_packages \
     ca-certificates \
     sudo \
@@ -29,13 +30,13 @@ RUN install_packages libwayland-dev \
 
 RUN git clone https://projects.blender.org/blender/blender.git
 
-RUN pwd
-
 WORKDIR /app/blender
 
-RUN ls -R
-RUN ./build_files/build_environment/install_linux_packages.py --all && \
-  make && \ 
+# RUN ./build_files/build_environment/install_linux_packages.py && \
+#   make headless && \ 
+#   make install
+
+RUN make headless && \ 
   make install
 
 # Set up the virtual display environment variable
