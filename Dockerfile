@@ -29,10 +29,12 @@ RUN install_packages libwayland-dev \
 
 RUN git clone https://projects.blender.org/blender/blender.git
 
-WORKDIR /blender
+RUN pwd
+
+WORKDIR /app/blender
 
 RUN ls -R
-RUN ./$(find /blender -name "install_linux_packages.py") --all && \
+RUN ./build_files/build_environment/install_linux_packages.py --all && \
   make && \ 
   make install
 
