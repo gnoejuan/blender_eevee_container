@@ -1,4 +1,4 @@
-FROM bitnami/minideb:latest
+FROM bitnami/python:3.10.13
 
 ARG BLENDER_VERSION
 
@@ -6,7 +6,7 @@ ARG BLENDER_VERSION
 RUN install_packages \
     ca-certificates \
     sudo \
-    python3 \
+#    python3 \
     git \
     xvfb \
     libegl1 \
