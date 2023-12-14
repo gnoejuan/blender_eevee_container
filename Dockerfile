@@ -2,6 +2,8 @@ FROM python:3.12.1
 
 ARG BLENDER_VERSION
 
+ENV WITH_LIBS_PRECOMPILED False
+
 # Install dependencies for Xvfb and Blender
 RUN apt-get update
 RUN apt-get install \
@@ -26,11 +28,21 @@ RUN apt-get install libwayland-dev \
     wayland-protocols \
     libxkbcommon-dev \
     libdbus-1-dev \
+    autoconf \
+    automake \
+    bison \
+    libtool \
+    yasm \
+    tcl \
+    ninja-build \
+    meson \
+    python3-mako \
+    patchelf \
+    libasound2-dev \
+    pulseaudio \
     linux-libc-dev -y
 
 RUN git clone https://projects.blender.org/blender/blender.git
-
-RUN pwd
 
 WORKDIR /blender
 
@@ -38,9 +50,13 @@ WORKDIR /blender
 #   make headless && \ 
 #   make install
 
-RUN ./build_files/build_environment/install_linux_packages.py && \
-  make release && \ 
-  make install
+RUN ./build_files/build_environment/install_linux_packages.py --all
+
+RUN  make update
+
+RUN  make deps
+RUN  make release 
+RUN  make install
 
 # Set up the virtual display environment variable
 ENV DISPLAY :99
