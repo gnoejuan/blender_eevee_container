@@ -1,4 +1,4 @@
-FROM bitnami/python:3.12.1
+FROM python:3.12.1
 
 ARG BLENDER_VERSION
 
