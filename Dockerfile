@@ -4,7 +4,7 @@ ARG BLENDER_VERSION
 
 # Install dependencies for Xvfb and Blender
 RUN apt-get update
-RUN install_packages \
+RUN apt-get install \
     ca-certificates \
     sudo \
 #    python3 \
@@ -20,13 +20,13 @@ RUN install_packages \
     libxi-dev \
     libxrandr-dev \
     libxinerama-dev \
-    libegl-dev
+    libegl-dev -y
 
-RUN install_packages libwayland-dev \
+RUN apt-get install libwayland-dev \
     wayland-protocols \
     libxkbcommon-dev \
     libdbus-1-dev \
-    linux-libc-dev
+    linux-libc-dev -y
 
 RUN git clone https://projects.blender.org/blender/blender.git
 
