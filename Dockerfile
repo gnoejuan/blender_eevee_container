@@ -30,7 +30,9 @@ RUN apt-get install libwayland-dev \
 
 RUN git clone https://projects.blender.org/blender/blender.git
 
-WORKDIR /app/blender
+RUN pwd
+
+WORKDIR /blender
 
 # RUN ./build_files/build_environment/install_linux_packages.py && \
 #   make headless && \ 
