@@ -36,7 +36,8 @@ WORKDIR /app/blender
 #   make headless && \ 
 #   make install
 
-RUN make headless && \ 
+RUN ./build_files/build_environment/install_linux_packages.py && \
+  make release && \ 
   make install
 
 # Set up the virtual display environment variable
