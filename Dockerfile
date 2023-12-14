@@ -2,7 +2,7 @@ FROM python:3.12.1
 
 ARG BLENDER_VERSION
 
-ENV WITH_LIBS_PRECOMPILED False
+ENV WITH_LIBS_PRECOMPILED=OFF
 
 # Install dependencies for Xvfb and Blender
 RUN apt-get update
@@ -54,8 +54,8 @@ RUN ./build_files/build_environment/install_linux_packages.py --all
 
 RUN  make update
 
-RUN  make deps
-RUN  make release 
+# RUN  make deps
+RUN  make headless 
 RUN  make install
 
 # Set up the virtual display environment variable
