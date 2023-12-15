@@ -67,7 +67,7 @@ RUN curl -L "https://builder.blender.org/download/daily/blender-3.6.7-stable+v36
 ENV DISPLAY :99
 
 # Create a script to start Xvfb and then run the command
-RUN echo '#!/bin/bash\nXvfb :99 -screen 0 3840x2160x32 &\nexec "$@"' > /entrypoint.sh \
+RUN echo '#!/bin/bash\nXvfb :99 -screen 0 3840x2160x24 &\nexec "$@"' > /entrypoint.sh \
     && chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
