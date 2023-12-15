@@ -9,7 +9,7 @@ RUN apt-get update
 RUN apt-get install \
     ca-certificates \
     sudo \
-#    python3 \
+    python3 \
     git \
     xvfb \
     libegl1 \
@@ -22,6 +22,9 @@ RUN apt-get install \
     libxi-dev \
     libxrandr-dev \
     libxinerama-dev \
+    gcc \
+    g++ \
+    libglew-dev \
     libegl-dev -y
 
 RUN apt-get install libwayland-dev \
