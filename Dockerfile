@@ -58,7 +58,7 @@ RUN apt-get install libwayland-dev \
 # RUN  make headless 
 # RUN  make install
 
-RUN curl -L "https://www.blender.org/download/release/Blender3.6/blender-3.6.7-linux-x64.tar.xz" -o "blender.tar.xz" && \
+RUN curl -L "https://builder.blender.org/download/daily/blender-3.6.7-stable+v36.cbd81f283d58-linux.x86_64-release.tar.xz" -o "blender.tar.xz" && \
     tar -xvf blender.tar.xz --strip-components=1 -C /bin && \
     rm -rf blender.tar.xz && \
     rm -rf blender
