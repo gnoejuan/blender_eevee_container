@@ -40,6 +40,8 @@ RUN apt-get install libwayland-dev \
     libasound2-dev \
     pulseaudio \
     ffmpeg \
+    libpng-dev \
+    libjpeg-dev \
     linux-libc-dev -y
 
 # RUN git clone https://projects.blender.org/blender/blender.git
