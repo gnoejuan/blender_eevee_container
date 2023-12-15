@@ -1,9 +1,5 @@
 FROM python:3.10-bookworm
 
-ARG BLENDER_VERSION
-
-ENV WITH_LIBS_PRECOMPILED=OFF
-
 # Install dependencies for Xvfb and Blender
 RUN apt-get update
 RUN apt-get install \
@@ -43,29 +39,35 @@ RUN apt-get install libwayland-dev \
     patchelf \
     libasound2-dev \
     pulseaudio \
+    ffmpeg \
     linux-libc-dev -y
 
-RUN git clone https://projects.blender.org/blender/blender.git
+# RUN git clone https://projects.blender.org/blender/blender.git
 
-WORKDIR /blender
+# WORKDIR /blender
 
 # RUN ./build_files/build_environment/install_linux_packages.py && \
 #   make headless && \ 
 #   make install
 
-RUN ./build_files/build_environment/install_linux_packages.py --all
+# RUN ./build_files/build_environment/install_linux_packages.py --all
 
-RUN  make update
+# RUN  make update
 
 # RUN  make deps
-RUN  make headless 
-RUN  make install
+# RUN  make headless 
+# RUN  make install
+
+RUN curl "https://www.blender.org/download/release/Blender3.6/blender-3.6.7-linux-x64.tar.xz" -o "blender.tar.xz" && \
+    tar -xvf blender.tar.xz --strip-components=1 -C /bin && \
+    rm -rf blender.tar.xz && \
+    rm -rf blender
 
 # Set up the virtual display environment variable
 ENV DISPLAY :99
 
 # Create a script to start Xvfb and then run the command
-RUN echo '#!/bin/bash\nXvfb :99 -screen 0 1024x768x24 &\nexec "$@"' > /entrypoint.sh \
+RUN echo '#!/bin/bash\nXvfb :99 -screen 0 3840x2160x32 &\nexec "$@"' > /entrypoint.sh \
     && chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
