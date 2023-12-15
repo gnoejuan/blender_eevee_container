@@ -42,6 +42,7 @@ RUN apt-get install libwayland-dev \
     ffmpeg \
     libpng-dev \
     libjpeg-dev \
+    mesa-utils \
     linux-libc-dev -y
 
 # RUN git clone https://projects.blender.org/blender/blender.git
