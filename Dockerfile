@@ -9,7 +9,9 @@ RUN chmod +x /etc/init.d/xvfb && \
     update-rc.d xvfb defaults && \
     echo "export DISPLAY=:0" >> ~/.bashrc
 
-RUN apt install -yq \
+RUN apt-get update 
+
+RUN install_packages \
 # `xvfb` dependencies
     xorg \
     openbox \
