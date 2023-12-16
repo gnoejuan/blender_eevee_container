@@ -18,6 +18,7 @@ RUN install_packages \
     xvfb \
 # `blender` dependencies
     libxxf86vm1 \
+    libxkbcommon-x11-0 \
     libxfixes3 \
     libgl1 \
     libpng-dev \
