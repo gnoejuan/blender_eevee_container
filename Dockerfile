@@ -26,7 +26,7 @@ RUN install_packages \
     # libc-dev-bin \
     linux-libc-dev -y
 
-RUN pip install --global bpy
+RUN pip install bpy
 
 # FROM python:3.10-bookworm
 
