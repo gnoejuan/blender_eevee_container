@@ -44,7 +44,7 @@ RUN install_packages \
     gcc \
     g++ \
     libglew-dev \
-    libegl-dev
+    libegl-dev \
     libwayland-dev \
     wayland-protocols \
     libxkbcommon-dev \
