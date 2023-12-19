@@ -25,7 +25,7 @@ RUN install_packages \
     libjpeg-dev \
     mesa-utils \
     # libc-dev-bin \
-    linux-libc-dev 
+    linux-libc-dev \
     ca-certificates \
     sudo \
     python3 \
