@@ -128,13 +128,19 @@ RUN apt-get install \
 
 FROM base
 
+ENV WITH_LIBS_PRECOMPILED=OFF
+
 COPY --from=clone blender ./blender
 
 WORKDIR /blender
 
-RUN ./build_files/build_environment/install_linux_packages.py && \
-  make headless && \ 
-  make install
+# RUN ./build_files/build_environment/install_linux_packages.py && \
+#   make headless && \ 
+#   make install
+
+# ENV WITH_LIBS_PRECOMPILED=FALSE
+
+RUN  make deps
 
 RUN ./build_files/build_environment/install_linux_packages.py --all
 
