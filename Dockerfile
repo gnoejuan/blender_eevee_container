@@ -1,5 +1,11 @@
+#cloning 
+
+FROM bitnami/git:latest as clone
+
+RUN git clone https://projects.blender.org/blender/blender.git
+
 # Use same image as when you built `bpy`
-FROM bitnami/python:3.10.13-debian-11-r48
+FROM FROM python:3.10-bookworm as base
 # Copy over files from the `blender` image
 # COPY --from=blender /opt/blender/site-packages/ /path/to/site-packages/
 COPY xvfb /etc/init.d/
@@ -118,9 +124,13 @@ RUN install_packages \
 #     libc-dev-bin \
 #     linux-libc-dev -y
 
-RUN git clone https://projects.blender.org/blender/blender.git
+# RUN git clone https://projects.blender.org/blender/blender.git
 
-WORKDIR /app/blender
+FROM base
+
+COPY --from=clone blender ./blender
+
+WORKDIR /blender
 
 RUN ./build_files/build_environment/install_linux_packages.py && \
   make headless && \ 
