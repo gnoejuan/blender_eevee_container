@@ -5,7 +5,7 @@ FROM bitnami/git:latest as clone
 RUN git clone https://projects.blender.org/blender/blender.git
 
 # Use same image as when you built `bpy`
-FROM FROM python:3.10-bookworm as base
+FROM python:3.10-bookworm as base
 # Copy over files from the `blender` image
 # COPY --from=blender /opt/blender/site-packages/ /path/to/site-packages/
 COPY xvfb /etc/init.d/
