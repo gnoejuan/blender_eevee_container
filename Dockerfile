@@ -17,7 +17,7 @@ RUN chmod +x /etc/init.d/xvfb && \
 
 RUN apt-get update 
 
-RUN install_packages \
+RUN apt-get install \
 # `xvfb` dependencies
     xorg \
     openbox \
