@@ -20,6 +20,7 @@ RUN apt-get update
 RUN apt-get install \
 # `xvfb` dependencies
     xorg \
+    subversion \
     openbox \
     xvfb \
 # `blender` dependencies
@@ -140,12 +141,8 @@ WORKDIR /blender
 
 # ENV WITH_LIBS_PRECOMPILED=FALSE
 
-RUN  make deps
-
-RUN ./build_files/build_environment/install_linux_packages.py --all
-
 RUN  make update
-
+RUN ./build_files/build_environment/install_linux_packages.py --all
 RUN  make deps
 RUN  make headless 
 RUN  make install
